@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  height: 70px;
+  padding: 0 15%;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  /* justify-content: space-around; */
+  grid-template-columns: auto auto auto;
+  background-color: #497480;
+}
+
+.header_item {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  /* for padding-bottom 5px */
+  line-height: 65px;
+  font-weight: 800;
+  color: #b1c6cc;
+}
+
+.header_item:hover {
+  background-color: rgba(222, 247, 254, 0.2);
+}
+
+.cont {
+  font-family: 'Shippori Mincho B1';
+  text-decoration: none;
+}
