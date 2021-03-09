@@ -12,7 +12,6 @@ export default function Books() {
       const result = await fetch('http://localhost:3000/api/v1/books/', { method: 'GET' })
       const json = await result.json()
       setBooks(json)
-      cookie.set('books', json, { expires: 1 / 24 })
     }
 
     async function loadAuthors() {
@@ -29,6 +28,8 @@ export default function Books() {
     return author.name
   }
 
+  function openAddingModalWindow() {}
+
   return (
     <MainLayout>
       {console.log(1)}
@@ -36,20 +37,12 @@ export default function Books() {
         <tr className='table_header'>
           <th>Title</th>
           <th>Author</th>
-          <th>Pages</th>
-          <th>Cover</th>
-          <th>Cover color</th>
-          <th>Cover image?</th>
           <th>Details</th>
         </tr>
-        {books.map((book) => (
-          <tr className='table_row'>
+        {books.map((book, index) => (
+          <tr className='table_row' key={index}>
             <td>{book.name}</td>
             <td>{findAuthor(book.author)}</td>
-            <td>{book.pages}</td>
-            <td>{book.cover_type}</td>
-            <td>{book.cover_color}</td>
-            <td>{book.cover_image}</td>
             <td>
               <Link href={'http://localhost:3000/books/book/' + book.id}>
                 <a>
@@ -60,6 +53,9 @@ export default function Books() {
           </tr>
         ))}
       </table>
+      <button className='btn' onClick={openAddingModalWindow()}>
+        Add
+      </button>
     </MainLayout>
   )
 }
