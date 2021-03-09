@@ -25,4 +25,14 @@ export default function authors(req, res) {
 
     res.status(200).json(currentAuthors)
   }
+  if (req.method == 'PUT') {
+    const receivedAuthor = JSON.parse(req.body)
+    const indOfFoundAuthor = currentAuthors.findIndex((author) => author.id == receivedAuthor.id)
+
+    currentAuthors[indOfFoundAuthor] = {
+      id: receivedAuthor.id,
+      name: receivedAuthor.name,
+      birth: receivedAuthor.birth,
+    }
+  }
 }
