@@ -118,6 +118,11 @@ main {
   right: 15%;
 }
 
+.btn-change {
+  position: absolute;
+  left: 54.3%;
+}
+
 .btn:hover {
   background-color: rgba(191, 71, 109, 0.9);
 }

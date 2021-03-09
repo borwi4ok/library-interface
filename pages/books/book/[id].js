@@ -59,8 +59,7 @@ export default function Book() {
 
   return (
     <MainLayout>
-      <div class='details'>{visualizeBookDetails()}</div>
-      {console.log(authors)}
+      <div className='details'>{visualizeBookDetails()}</div>
     </MainLayout>
   )
 }

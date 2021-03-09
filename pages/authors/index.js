@@ -4,7 +4,7 @@ import MainLayout from '../../components/MainLayout'
 
 export default function Authors() {
   const [authors, setAuthors] = useState([])
-  const [isShowModalWindow, setIsShowModalWindow] = useState(true)
+  const [isShowModalWindow, setIsShowModalWindow] = useState(false)
   const [newAuthorsName, setNewAuthorsName] = useState('')
   const [newAuthorsBirth, setNewAuthorsBirth] = useState('')
 

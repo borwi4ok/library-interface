@@ -5,6 +5,9 @@ import MainLayout from '../../../components/MainLayout'
 export default function Author() {
   const router = useRouter()
   const [author, setAuthor] = useState({})
+  const [isChanging, setIsChanging] = useState(true)
+  const [changedName, setChangedName] = ''
+  const [changedBirth, setChangedBirtg] = ''
 
   const authorHeaders = ['name', 'birth']
 
@@ -31,16 +34,37 @@ export default function Author() {
         return (
           <div className='details_row'>
             <p className='details_header'>{header}</p>
-            <p className='details_key'>{authorKeys[index]}</p>
+            {isChanging ? (
+              <input value={authorKeys[index]} onChange={set} />
+            ) : (
+              <p className='details_key'>{authorKeys[index]}</p>
+            )}
           </div>
         )
       })
     }
   }
 
+  function changeAuthorDetails() {
+    if (isChanging) {
+    }
+
+    setIsChanging((prev) => !prev)
+  }
+
   return (
     <MainLayout>
       <div className='details'>{visualizeAuthorDetails()}</div>
+
+      {isChanging ? (
+        <button className='btn btn-change' onClick={changeAuthorDetails}>
+          OK
+        </button>
+      ) : (
+        <button className='btn btn-change' onClick={changeAuthorDetails}>
+          Change
+        </button>
+      )}
     </MainLayout>
   )
 }
